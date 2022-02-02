@@ -121,6 +121,7 @@
 
     <!--    Bottom Navigation Title-->
     <string name="home_nav_title">Home</string>
+    <string name="home_nav_diner">Diner</string>
     <string name="request_agent_title">Get agent</string>
     <string name="chats_title">Chats</string>
     <string name="retry_button_string">Retry</string>
@@ -196,6 +197,7 @@
     <string name="clean_hands">Made with clean hands. (Don\'t forget to sanitize.)</string>
     <string name="delegate">Delegate</string>
     <string name="bottom_nav_delegated">Delegated</string>
+    <string name="bottom_nav_orders">Orders</string>
     <string name="service_interruption_text">There are minor interruptions at the Service Centre. We may be slightly delayed.</string>
     <string name="no_verification_code_msg">It seems we are unable to verify your contact at the moment.</string>
     <string name="verify_later">No worries, we will verify later.</string>
@@ -223,5 +225,6 @@
     <string name="verify_email_prompt">Please check your email, %1$s, to verify your Ummo account.\n\nIf you haven\'t received it yet, you may resend it below.</string>
     <string name="service_benefits_title_text">Why %1$s</string>
     <string name="making_request">We\'re making your request…</string>
+    <string name="place_order">PLACE ORDER</string>
 
 </resources>

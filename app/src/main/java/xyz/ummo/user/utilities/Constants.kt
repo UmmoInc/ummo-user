@@ -117,3 +117,6 @@ const val TAKE_ME_TO = "TAKE_ME_TO"
 const val DELEGATED_SERVICE_FRAGMENT = "DELEGATED_SERVICE_FRAGMENT"
 
 /** Crash states**/
+
+/** DINE Constants **/
+const val FOOD_ITEM_OBJECT = "food_item_object"

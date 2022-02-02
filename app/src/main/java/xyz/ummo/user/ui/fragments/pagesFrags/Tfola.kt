@@ -36,7 +36,7 @@ import xyz.ummo.user.models.ServiceCostModel
 import xyz.ummo.user.models.ServiceObject
 import xyz.ummo.user.models.ServiceProviderData
 import xyz.ummo.user.rvItems.ServiceItem
-import xyz.ummo.user.ui.fragments.categories.ServiceCategories
+import xyz.ummo.user.ui.fragments.publicServiceCategories.ServiceCategories
 import xyz.ummo.user.ui.viewmodels.ServiceViewModel
 import xyz.ummo.user.utilities.SERVICE_BENEFITS
 import xyz.ummo.user.utilities.SERVICE_CATEGORY

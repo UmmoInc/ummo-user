@@ -27,13 +27,12 @@ import xyz.ummo.user.models.ServiceBenefit
 import xyz.ummo.user.models.ServiceCostModel
 import xyz.ummo.user.models.ServiceObject
 import xyz.ummo.user.models.ServiceProviderData
-import xyz.ummo.user.ui.fragments.categories.ServiceCategories
 import xyz.ummo.user.ui.fragments.pagesFrags.tfuma.Tfuma
+import xyz.ummo.user.ui.fragments.publicServiceCategories.ServiceCategories
 import xyz.ummo.user.ui.viewmodels.ServiceProviderViewModel
 import xyz.ummo.user.ui.viewmodels.ServiceViewModel
 import xyz.ummo.user.utilities.SERVICE_CATEGORY
 import java.util.*
-import kotlin.collections.ArrayList
 
 class PagesFragment : Fragment() {
 

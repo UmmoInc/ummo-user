@@ -11,8 +11,8 @@
     <color name="linkWhite">#d8e5f1</color>
 
     <color name="normalTextColor">#000000</color>
-    <color name= "listedProviderBackground">#ffffff</color>
-    <color name= "catergoryBackground">#faf8f8</color>
+    <color name="listedProviderBackground">#ffffff</color>
+    <color name="catergoryBackground">#faf8f8</color>
 
     <color name="ummo_1">#ae35e0</color>
     <color name="ummo_2">#0086c3</color>
@@ -20,6 +20,9 @@
     <color name="ummo_4">#73e8ff</color>
     <color name="appleWhite">#d6ecff</color>
     <color name="screenWhite">#eeeeee</color>
+
+    <color name="ummo_dine_green">#59bd5a</color>
+    <color name="ummo_dine_black">#262626</color>
 
     <color name="yellow">#ffff00</color>
     <color name="gold">#ffd700</color>

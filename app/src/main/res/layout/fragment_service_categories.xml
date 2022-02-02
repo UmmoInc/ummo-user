@@ -8,7 +8,7 @@
         android:background="#1111"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.categories.ServiceCategories">
+        tools:context=".ui.fragments.publicServiceCategories.ServiceCategories">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/home_bar_card_view"
@@ -39,7 +39,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/rubik"
                     android:padding="5dp"
-                    android:text="Welcome, User"
+                    android:text="Welcome to the Government Court"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/rubik"
-                    android:text="Select a category below to get started"
+                    android:text="Select a gov-category below to get started to get started"
                     android:textSize="12sp"
                     android:textStyle="normal" />
             </RelativeLayout>

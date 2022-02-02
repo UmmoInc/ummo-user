@@ -2,14 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottom_navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/home_nav_title" />
+        android:id="@+id/bottom_navigation_diner"
+        android:icon="@drawable/ic_fastfood_24_nav"
+        android:title="@string/home_nav_diner" />
 
     <item
-        android:id="@+id/bottom_navigation_delegates"
-        android:icon="@drawable/ic_tfuma_24"
+        android:id="@+id/bottom_navigation_gov"
+        android:icon="@drawable/ic_gov_nav"
         android:title="@string/bottom_nav_delegated" />
+
+    <item
+        android:id="@+id/bottom_navigation_orders"
+        android:icon="@drawable/ic_baseline_receipt_24"
+        android:title="@string/bottom_nav_orders" />
 
     <!--<item
         android:id="@+id/bottom_navigation_service"

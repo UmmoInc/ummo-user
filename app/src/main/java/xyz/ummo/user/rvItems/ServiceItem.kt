@@ -46,7 +46,6 @@ import xyz.ummo.user.utilities.eventBusEvents.*
 import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ServiceItem(
     private val service: ServiceObject,
@@ -168,8 +167,7 @@ class ServiceItem(
                     .into(viewHolder.itemView.service_image_view)
             }
             service.serviceName.contains("Passport", true) -> {
-                picasso.load(R.drawable.passport)
-                    .into(viewHolder.itemView.service_image_view)
+                picasso.load(R.drawable.passport).into(viewHolder.itemView.service_image_view)
             }
             service.serviceName.contains("Travel Document", true) -> {
                 picasso.load(R.drawable.travel_document)

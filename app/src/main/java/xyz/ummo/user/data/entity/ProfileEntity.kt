@@ -1,6 +1,7 @@
 package xyz.ummo.user.data.entity
 
 import androidx.annotation.NonNull
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,7 +9,6 @@ import xyz.ummo.user.data.model.ProfileModel
 
 @Entity(tableName = "profile")
 class ProfileEntity : ProfileModel {
-
     @NonNull
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "profile_contact")

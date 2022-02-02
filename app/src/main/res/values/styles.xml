@@ -31,9 +31,26 @@
         <item name="tabSelectedTextColor">@color/White</item>
     </style>
 
+    <style name="DineTabLayout" parent="Widget.Design.TabLayout">
+        <!--<item name="tabMaxWidth">@dimen/tab</item>-->
+        <item name="tabIndicatorColor">#666</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabPaddingStart">6dp</item>
+        <item name="tabPaddingEnd">6dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/Widget.AppCompat.ActionBar.TabText</item>
+        <item name="tabSelectedTextColor">#ffcc0000</item>
+    </style>
+
     <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/appleWhite</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="DineTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ffcc0000</item>
         <item name="textAllCaps">false</item>
     </style>
 

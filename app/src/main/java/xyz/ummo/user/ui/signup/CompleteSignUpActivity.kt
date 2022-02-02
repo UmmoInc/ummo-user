@@ -310,9 +310,11 @@ class CompleteSignUpActivity : AppCompatActivity() {
                             "Already Registered!",
                             Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(applicationContext,
-                            Objects.requireNonNull(task.exception).message,
-                            Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        Objects.requireNonNull(task.exception).message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

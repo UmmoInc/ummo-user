@@ -1,4 +1,4 @@
-package xyz.ummo.user.ui.fragments.categories
+package xyz.ummo.user.ui.fragments.publicServiceCategories
 
 import android.content.Context
 import android.content.SharedPreferences

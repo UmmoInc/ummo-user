@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/share_diner_menu"
+        android:icon="@drawable/ic_share_grey_24"
+        android:title="@string/feedback"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/save_diner_menu"
+        android:icon="@drawable/ic_outline_favorite_border_24"
+        android:title="@string/support"
+        app:showAsAction="always" />
+</menu>

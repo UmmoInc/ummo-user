@@ -1,5 +1,6 @@
 package xyz.ummo.user.ui.main
 
+//import xyz.ummo.user.utilities.oneSignal.UmmoNotificationOpenedHandler.Companion.OPEN_DELEGATION
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.IntentFilter
@@ -38,7 +39,9 @@ import org.json.JSONArray
 import org.json.JSONObject
 import timber.log.Timber
 import xyz.ummo.user.R
-import xyz.ummo.user.api.*
+import xyz.ummo.user.api.GeneralFeedback
+import xyz.ummo.user.api.GetAllServices
+import xyz.ummo.user.api.GetServiceProvider
 import xyz.ummo.user.data.entity.DelegatedServiceEntity
 import xyz.ummo.user.data.entity.ProfileEntity
 import xyz.ummo.user.data.entity.ServiceEntity
@@ -48,20 +51,21 @@ import xyz.ummo.user.databinding.AppBarMainScreenBinding
 import xyz.ummo.user.databinding.DelegationIntroCardBinding
 import xyz.ummo.user.models.ServiceProviderData
 import xyz.ummo.user.ui.fragments.UmmoBrowser
-import xyz.ummo.user.ui.fragments.categories.ServiceCategories
 import xyz.ummo.user.ui.fragments.delegatedService.DelegatedServiceFragment
 import xyz.ummo.user.ui.fragments.delegatedService.DelegatedServiceViewModel
+import xyz.ummo.user.ui.fragments.diner.DinerTabbedFragment
+import xyz.ummo.user.ui.fragments.diner.foodCourt.order_tracker.OrderTracker
+import xyz.ummo.user.ui.fragments.portal.PortalFragment
 import xyz.ummo.user.ui.fragments.profile.ProfileFragment
 import xyz.ummo.user.ui.fragments.profile.ProfileViewModel
+import xyz.ummo.user.ui.fragments.publicServiceCategories.ServiceCategories
 import xyz.ummo.user.ui.viewmodels.ServiceProviderViewModel
 import xyz.ummo.user.ui.viewmodels.ServiceViewModel
 import xyz.ummo.user.utilities.*
 import xyz.ummo.user.utilities.broadcastreceivers.ConnectivityReceiver
 import xyz.ummo.user.utilities.eventBusEvents.*
-//import xyz.ummo.user.utilities.oneSignal.UmmoNotificationOpenedHandler.Companion.OPEN_DELEGATION
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MainScreen : AppCompatActivity() {
 
@@ -242,15 +246,15 @@ class MainScreen : AppCompatActivity() {
         val bottomNavigation: BottomNavigationView = mainScreenBinding.bottomNav
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_delegates)
+        badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_orders)
 
-        if (bottomNavigation.selectedItemId == R.id.bottom_navigation_delegates) {
+        if (bottomNavigation.selectedItemId == R.id.bottom_navigation_orders) {
             badge.isVisible = false
         }
 
         showBadge()
 //        getDynamicLinks()
-        bottomNavigation.selectedItemId = R.id.bottom_navigation_home
+        bottomNavigation.selectedItemId = R.id.bottom_navigation_diner
 //        checkForSocketConnection()
         getServiceProviderData()
 
@@ -320,8 +324,9 @@ class MainScreen : AppCompatActivity() {
         introDialogBuilder.setPositiveButton("Send Survey") { dialogInterface, i ->
             Timber.e("USER IS IN!!!")
 //            val pagesFragment = PagesFragment()
-            val serviceCategories = ServiceCategories()
-            openFragment(serviceCategories)
+//            val serviceCategories = ServiceCategories()
+            val portalFragment = PortalFragment()
+            openFragment(portalFragment)
 
             editor.putBoolean(NEW_SESSION, false).apply()
 
@@ -335,7 +340,7 @@ class MainScreen : AppCompatActivity() {
         introDialogBuilder.setNegativeButton("No thanks") { dialogInterface, i ->
             editor.putBoolean(NEW_SESSION, false).apply()
 
-            mixpanel.track("welcomePromptUser_dontSendSurvey", welcomeEventObject)
+            mixpanel.track("welcomePromptUser_don'tSendSurvey", welcomeEventObject)
 
         }
 
@@ -734,32 +739,45 @@ class MainScreen : AppCompatActivity() {
 
             when (item.itemId) {
 
-                R.id.bottom_navigation_home -> {
-                    supportActionBar?.title = "Ummo"
+                R.id.bottom_navigation_diner -> {
+                    supportActionBar?.title = "Ummo Diner"
 
                     /** Modify info card **/
-                    val serviceCategories = ServiceCategories()
-                    openFragment(serviceCategories)
+//                    val serviceCategories = ServiceCategories()
+                    val dinerFragment = DinerTabbedFragment()
+                    openFragment(dinerFragment)
 
                     val homeEventObject = JSONObject()
                     homeEventObject.put("EVENT_DATE_TIME", currentDate)
-                    mixpanel?.track("bottomNavigation_homeTapped", homeEventObject)
+                    mixpanel?.track("bottomNavigation_dinerTapped", homeEventObject)
 
                     return@OnNavigationItemSelectedListener true
                 }
 
-                R.id.bottom_navigation_delegates -> {
-                    val delegatedServiceFragment = DelegatedServiceFragment()
-                    openFragment(delegatedServiceFragment)
+                R.id.bottom_navigation_gov -> {
+//                    val delegatedServiceFragment = DelegatedServiceFragment()
+                    val serviceCategories = ServiceCategories()
+                    openFragment(serviceCategories)
 
                     badge.isVisible = false
 
                     val delegatedServiceEventObject = JSONObject()
                     delegatedServiceEventObject.put("EVENT_DATE_TIME", currentDate)
                     mixpanel?.track(
-                        "bottomNavigation_delegatedServiceTapped",
+                        "bottomNavigation_govServicesTapped",
                         delegatedServiceEventObject
                     )
+
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.bottom_navigation_orders -> {
+                    val orderTracker = OrderTracker()
+                    openFragment(orderTracker)
+
+                    val orderTrackerObject = JSONObject()
+                    orderTrackerObject.put("EVENT_DATE_TIME", currentDate)
+                    mixpanel?.track("bottomNavigation_orderTrackerTapped", orderTrackerObject)
 
                     return@OnNavigationItemSelectedListener true
                 }
