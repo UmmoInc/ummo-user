@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.android.synthetic.main.fragment_personal_info.view.*
 import xyz.ummo.user.R
-import xyz.ummo.user.data.entity.ProfileEntity
+import xyz.ummo.user.data.govRoomData.entity.ProfileEntity
 import xyz.ummo.user.databinding.FragmentPersonalInfoBinding
 
 

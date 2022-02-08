@@ -42,10 +42,10 @@ import xyz.ummo.user.R
 import xyz.ummo.user.api.GeneralFeedback
 import xyz.ummo.user.api.GetAllServices
 import xyz.ummo.user.api.GetServiceProvider
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
-import xyz.ummo.user.data.entity.ProfileEntity
-import xyz.ummo.user.data.entity.ServiceEntity
-import xyz.ummo.user.data.entity.ServiceProviderEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ProfileEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceProviderEntity
 import xyz.ummo.user.databinding.ActivityMainScreenBinding
 import xyz.ummo.user.databinding.AppBarMainScreenBinding
 import xyz.ummo.user.databinding.DelegationIntroCardBinding

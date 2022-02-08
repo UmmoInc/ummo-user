@@ -33,7 +33,7 @@ import timber.log.Timber
 import xyz.ummo.user.R
 import xyz.ummo.user.api.RequestService
 import xyz.ummo.user.api.User
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
 import xyz.ummo.user.databinding.FragmentServiceRequestBottomSheetBinding
 import xyz.ummo.user.models.ServiceCostModel
 import xyz.ummo.user.models.ServiceObject

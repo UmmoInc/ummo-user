@@ -29,8 +29,8 @@ import org.json.JSONObject
 import timber.log.Timber
 import xyz.ummo.user.R
 import xyz.ummo.user.api.*
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
-import xyz.ummo.user.data.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
 import xyz.ummo.user.models.ServiceCommentObject
 import xyz.ummo.user.models.ServiceCostModel
 import xyz.ummo.user.models.ServiceObject

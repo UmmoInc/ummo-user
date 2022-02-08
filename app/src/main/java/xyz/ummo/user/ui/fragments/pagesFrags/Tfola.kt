@@ -28,7 +28,7 @@ import xyz.ummo.user.R
 import xyz.ummo.user.api.GetAllServices
 import xyz.ummo.user.api.GetServiceProvider
 import xyz.ummo.user.api.Service
-import xyz.ummo.user.data.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
 import xyz.ummo.user.databinding.FragmentTfolaBinding
 import xyz.ummo.user.databinding.ServiceFilterChipLayoutBinding
 import xyz.ummo.user.models.ServiceBenefit

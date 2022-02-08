@@ -30,8 +30,8 @@ import org.greenrobot.eventbus.Subscribe
 import timber.log.Timber
 import xyz.ummo.user.R
 import xyz.ummo.user.api.DelegationFeedback
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
-import xyz.ummo.user.data.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
 import xyz.ummo.user.databinding.AppBarDelegatedScreenBinding
 import xyz.ummo.user.databinding.ConfirmServiceDeliveredViewBinding
 import xyz.ummo.user.databinding.FragmentDelegatedBinding

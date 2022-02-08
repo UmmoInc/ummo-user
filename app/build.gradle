@@ -85,18 +85,30 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     def multidex_version = "2.0.1"
     def lifecycle_version = '2.2.0'
-    def room_version = '2.2.6'
+    def room_version = '2.4.1'
     def versions_work = "2.7.1"
 
     /**Dex**/
     implementation "androidx.multidex:multidex:$multidex_version"
 
+    /** Room Implementation **/
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    /** Kotlin Extensions and Coroutines support for Room **/
+    implementation "androidx.room:room-ktx:$room_version"
+    /** optional - Guava support for Room, including Optional and ListenableFuture **/
+    implementation "androidx.room:room-guava:$room_version"
+    /** optional - Test helpers **/
+    testImplementation "androidx.room:room-testing:$room_version"
+    /** optional - Paging 3 Integration **/
+    implementation "androidx.room:room-paging:2.4.1"
+
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.4.0"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'

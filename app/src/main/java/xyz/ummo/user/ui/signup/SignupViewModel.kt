@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 import xyz.ummo.user.workers.SocketConnectWorker
 
 class SignupViewModel(application: Application) : AndroidViewModel(application) {

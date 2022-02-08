@@ -30,9 +30,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.mixpanel.android.mpmetrics.MixpanelAPI
-import kotlinx.android.synthetic.main.content_delegation_progress.*
 import kotlinx.android.synthetic.main.content_detailed_service.*
-import kotlinx.android.synthetic.main.service_card.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,8 +38,8 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import timber.log.Timber
 import xyz.ummo.user.R
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
-import xyz.ummo.user.data.entity.ProductEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ProductEntity
 import xyz.ummo.user.databinding.ActivityDetailedServiceBinding
 import xyz.ummo.user.databinding.ContentDetailedServiceBinding
 import xyz.ummo.user.models.ServiceBenefit
@@ -56,7 +54,6 @@ import xyz.ummo.user.utilities.*
 import xyz.ummo.user.utilities.eventBusEvents.ConfirmPaymentTermsEvent
 import xyz.ummo.user.utilities.eventBusEvents.ServiceSpecifiedEvent
 import java.net.MalformedURLException
-import java.util.*
 import kotlin.collections.ArrayList
 
 class DetailedServiceActivity : AppCompatActivity() {

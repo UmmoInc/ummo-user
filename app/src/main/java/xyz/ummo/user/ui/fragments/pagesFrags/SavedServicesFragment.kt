@@ -19,8 +19,8 @@ import org.greenrobot.eventbus.Subscribe
 import org.json.JSONObject
 import timber.log.Timber
 import xyz.ummo.user.R
-import xyz.ummo.user.data.entity.ProfileEntity
-import xyz.ummo.user.data.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ProfileEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
 import xyz.ummo.user.databinding.FragmentSavedServicesBinding
 import xyz.ummo.user.models.ServiceObject
 import xyz.ummo.user.rvItems.ServiceItem

@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import timber.log.Timber
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 import xyz.ummo.user.workers.SocketConnectWorker
 import xyz.ummo.user.workers.sockethandlers.ServiceHandler
 

@@ -30,7 +30,7 @@ import xyz.ummo.user.api.GeneralFeedback
 import xyz.ummo.user.api.Logout
 import xyz.ummo.user.api.RequestEmailVerification
 import xyz.ummo.user.api.User
-import xyz.ummo.user.data.entity.ProfileEntity
+import xyz.ummo.user.data.govRoomData.entity.ProfileEntity
 import xyz.ummo.user.ui.fragments.scanner.CheckIn
 import xyz.ummo.user.ui.main.MainScreen
 import xyz.ummo.user.ui.main.MainScreen.Companion.supportFM

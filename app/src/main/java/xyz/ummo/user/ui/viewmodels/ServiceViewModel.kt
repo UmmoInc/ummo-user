@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import timber.log.Timber
-import xyz.ummo.user.data.entity.ServiceEntity
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 
 class ServiceViewModel(application: Application) : AndroidViewModel(application) {
     private val appRepository = AppRepository(application)

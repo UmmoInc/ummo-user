@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import timber.log.Timber
-import xyz.ummo.user.data.entity.ProductEntity
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.entity.ProductEntity
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 
 class DetailedProductViewModel(application: Application) : AndroidViewModel(application) {
     private val appRepository: AppRepository = AppRepository(application)

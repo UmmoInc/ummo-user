@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import xyz.ummo.user.data.entity.ProfileEntity
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.entity.ProfileEntity
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 import xyz.ummo.user.workers.SocketConnectWorker
 
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {

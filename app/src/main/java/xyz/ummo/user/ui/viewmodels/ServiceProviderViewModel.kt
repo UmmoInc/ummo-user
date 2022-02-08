@@ -3,10 +3,9 @@ package xyz.ummo.user.ui.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import timber.log.Timber
-import xyz.ummo.user.data.entity.ServiceProviderEntity
-import xyz.ummo.user.data.repo.AppRepository
+import xyz.ummo.user.data.govRoomData.entity.ServiceProviderEntity
+import xyz.ummo.user.data.govRoomData.repo.AppRepository
 
 class ServiceProviderViewModel (application: Application) : AndroidViewModel(application) {
     private val appRepository = AppRepository(application)

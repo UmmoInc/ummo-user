@@ -10,7 +10,7 @@ import io.socket.client.IO
 import org.json.JSONObject
 import timber.log.Timber
 import xyz.ummo.user.R.string.serverUrl
-import xyz.ummo.user.data.entity.DelegatedServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.DelegatedServiceEntity
 import xyz.ummo.user.ui.fragments.delegatedService.DelegatedServiceViewModel
 import xyz.ummo.user.ui.main.MainScreen
 import java.net.URISyntaxException

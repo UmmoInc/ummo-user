@@ -20,8 +20,8 @@ import timber.log.Timber
 import xyz.ummo.user.R
 import xyz.ummo.user.adapters.PagesViewPagerAdapter
 import xyz.ummo.user.api.GetAllServices
-import xyz.ummo.user.data.entity.ServiceEntity
-import xyz.ummo.user.data.entity.ServiceProviderEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceEntity
+import xyz.ummo.user.data.govRoomData.entity.ServiceProviderEntity
 import xyz.ummo.user.databinding.FragmentPagesBinding
 import xyz.ummo.user.models.ServiceBenefit
 import xyz.ummo.user.models.ServiceCostModel
