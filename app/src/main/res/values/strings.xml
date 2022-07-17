@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">UmmoBite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_address">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_surname">Surname</string>
+    <string name="hint_contact">Mobile</string>
+    <string name="ummo_logo">Ummo logo</string>
+    <string name="accountregistration">Sign Up</string>
+    <string name="submit">Submit</string>
+    <string name="hint_username">user name</string>
+    <string name="don_t_have_an_account">"Don't have an account? "</string>
+    <string name="register">Register</string>
+    <string name="cancel">cancel</string>
+    <string name="button_next">next</string>
+    <string name="been_here_before">Been here before?</string>
+    <string name="emailorphone">Email/Phone</string>
+    <string name="log_in">Log In</string>
+    <string name="login">Login</string>
+    <string name="new_to_ummo_bite">New to Ummo Bite?</string>
+    <string name="continue_">Continue</string>
+    <string name="forgot_password">Forgot \n Password?</string>
+    <string name="password_recover_prompt">It\'s no real fuss just supply the \n the address associated with your account</string>
+    <string name="resetpassword">Reset \n Password</string>
+    <string name="new_password">New Password</string>
+    <string name="otp_prompt">A 4 digit pin has been sent to</string>
+
+
+    <!--  from ummo user -->
+
+
+    <string name="feedback">Feedback</string>
+    <string name="support">Support</string>
+    <string name="place_order">PLACE ORDER</string>
+    <string name="bottom_nav_orders">Orders</string>
+    <string name="profile_nav_title">Profile</string>
+    <string name="bottom_nav_delegated">Delegated</string>
+    <string name="home_nav_diner">Diner</string>
+    <string name="description_dinertabbed">diner viewpager</string>
+    <string name="viewpager_tabs_description">"vaiew pager title description "</string>
+    <string name="ummo_logo_text">Ummo Logo</string>
+
+</resources>
