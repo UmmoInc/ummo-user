@@ -1,4 +1,4 @@
-package xyz.ummo.bite.signup
+package xyz.ummo.bite.signup.phoneauth
 
 
 
@@ -26,6 +26,7 @@ import org.greenrobot.eventbus.Subscribe
 import xyz.ummo.bite.R
 import xyz.ummo.bite.databinding.FragmentOTPBinding
 import xyz.ummo.bite.main.MainActivity
+import xyz.ummo.bite.signup.OTPFragmentArgs
 
 
 import xyz.ummo.bite.signup.phoneauth.phoneAuthBottomSheet

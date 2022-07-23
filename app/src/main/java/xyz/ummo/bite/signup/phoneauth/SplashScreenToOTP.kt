@@ -1,4 +1,4 @@
-package xyz.ummo.bite
+package xyz.ummo.bite.signup.phoneauth
 
 import android.os.Bundle
 import android.os.SystemClock.sleep
@@ -14,8 +14,8 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import xyz.ummo.bite.R
 import xyz.ummo.bite.databinding.FragmentSplashScreenToOTPBinding
 import xyz.ummo.bite.utils.constants.Constants
 import java.util.concurrent.TimeUnit
@@ -40,8 +40,8 @@ private val binding get() =_binding
         rootView=binding.root
         auth = FirebaseAuth.getInstance()
         phoneNumber =arguments?.getString("phone_key").toString()
-        phoneAuth()
-
+       // phoneAuth()
+        moveToOTPFragment()
         return rootView
 
     }
@@ -59,7 +59,8 @@ private val binding get() =_binding
             R.id.NavHostFragment
         ) as NavHostFragment
         val   navController = navHostFragment.navController
-        navController.navigate(SplashScreenToOTPDirections.actionSplashScreenToOTPToOTPFragment(storedVerificationId!!,
+        navController.navigate(
+            SplashScreenToOTPDirections.actionSplashScreenToOTPToOTPFragment(storedVerificationId!!,
             resendToken.toString()
         ,phoneNumber))
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/appleWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="SplashScreenToOTP">
+    tools:context=".signup.phoneauth.SplashScreenToOTP">
 
     <RelativeLayout
         android:id="@+id/one"
