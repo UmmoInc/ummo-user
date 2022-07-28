@@ -14,10 +14,13 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import xyz.ummo.bite.R
+
 import xyz.ummo.bite.databinding.FragmentSplashScreenToOTPBinding
 import xyz.ummo.bite.utils.constants.Constants
+import xyz.ummo.bite.utils.constants.Constants.Companion.SPLASHSCREEN_DELAY_TIME
 import java.util.concurrent.TimeUnit
 
 
@@ -42,17 +45,21 @@ private val binding get() =_binding
         phoneNumber =arguments?.getString("phone_key").toString()
        // phoneAuth()
         moveToOTPFragment()
-        return rootView
+   return rootView
 
     }
     private fun moveToOTPFragment(){
-        var job : Job?= null// background thread to delay transition SplashScreen->OTPFragment
-        job = MainScope().launch {
-// use sleep instead of delay to avoid error crah when user clicks back
+
+// use sleep instead of delay to avoid error crash when user clicks back
             //while splashscreen fragment is loaded
+
+        // background thread to delay transition SplashScreen->OTPFragment
+        MainScope().launch {
+            delay(SPLASHSCREEN_DELAY_TIME)
             sleep(Constants.TOMENUFROM_OTP_SPLASHSCREEN_WAIT_TIME)
             navigationController()
         }
+
     }
     private fun navigationController() {
         val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(
@@ -126,7 +133,6 @@ private val binding get() =_binding
         ) as NavHostFragment
         val   navController = navHostFragment.navController
         navController.navigate(R.id.action_splashScreenToOTP_to_splashScreenToMenu2)
-
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
@@ -141,6 +147,6 @@ private val binding get() =_binding
                  Log.d("loginstatus","loginfailed")
                 }
             }
+        }
     }
-}
 

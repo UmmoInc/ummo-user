@@ -13,8 +13,7 @@ import xyz.ummo.bite.databinding.FragmentPhoneAuthBottomSheetBinding
 
 
 class phoneAuthBottomSheet : BottomSheetDialogFragment() {
-
-
+    
     private lateinit var  _binding: FragmentPhoneAuthBottomSheetBinding
     private val  binding get()=_binding!!
     private lateinit var  rootView: View
@@ -41,8 +40,6 @@ class phoneAuthBottomSheet : BottomSheetDialogFragment() {
 
     private fun restartPhoneAuthProcess() {
 
-
-
        //
         val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(
             R.id.NavHostFragment
@@ -63,7 +60,6 @@ class phoneAuthBottomSheet : BottomSheetDialogFragment() {
         ) as NavHostFragment
         val   navController = navHostFragment.navController
         navController.navigate(R.id.action_OTPFragment_to_splashScreenToMenu)
-
     }
 
 

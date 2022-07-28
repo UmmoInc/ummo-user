@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import xyz.ummo.bite.R
 import xyz.ummo.bite.databinding.FragmentSignInBinding
+import xyz.ummo.bite.sharedpreferences.Prefs
 
 
 class SignInFragment : Fragment() {
@@ -21,6 +23,9 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
+        val preferences: Prefs = Prefs(requireContext())
+
+
 
  navigationController()
         val view = binding.root
@@ -47,24 +52,31 @@ class SignInFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_signInFragment_to_userRegistrationFragment)
         })
 
-
-
-
         //To menu home page
-
         binding.loginBtn.setOnClickListener(View.OnClickListener {
-
             Navigation.findNavController(it).navigate(R.id.action_signInFragment_to_mainscreen)
         })
-
-
-
-
 
 // To forgot password fragment
         binding.forgotPasswordText.isClickable=true
         binding.forgotPasswordText.setOnClickListener(View.OnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_signInFragment_to_forgotPasswordFragment2)
         })
+
+        // to socials fragment
+        binding.useSocialsBtn.setOnClickListener(View.OnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_signInFragment_to_logInWithSocials)
+
+        })
+
     }
+
+
+
+
+
+
+
+
+
 }

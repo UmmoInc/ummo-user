@@ -143,6 +143,51 @@
                 style="@style/TextAppearance.UmmoBite.justText_different" />
 
         </RelativeLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp">
+    <View
+        android:id="@+id/SplitLine_hor1"
+        android:layout_width="match_parent"
+        android:layout_height= "2dp"
+        android:background="@color/DarkGrey"
+        app:layout_constraintTop_toTopOf="@+id/OR_signup"
+        android:layout_marginTop="10dp"
+
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/OR_signup"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/or_black_24x24_vd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/use_socials_btn"
+                style="@style/Widget.UmmoBite.Button.Fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:text="@string/usesocialmedia"
+
+                android:padding="12dp"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+
+
 
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -12,6 +12,7 @@ import xyz.ummo.bite.R
 import xyz.ummo.bite.databinding.FragmentSplashScreenToMenuBinding
 import xyz.ummo.bite.main.MainActivity
 import xyz.ummo.bite.utils.constants.Constants
+import xyz.ummo.bite.utils.constants.Constants.Companion.SPLASHSCREEN_DELAY_TIME
 
 
 class SplashScreenToJoints : Fragment() {
@@ -25,17 +26,19 @@ class SplashScreenToJoints : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentSplashScreenToMenuBinding.inflate(inflater, container, false)
         rootView = binding.root
+
         moveToNexFragment()
         return rootView
 
     }
     /// this function opens the mainscreen fragment
         private fun moveToNexFragment(){
-        var job : Job?= null
-        job = MainScope().launch {
 
             // use sleep instead of delay to avoid error crash when user clicks back
             //while splashscreen fragment is loaded
+        MainScope().launch {
+            // so the screen loads before the system sleeps
+            delay(SPLASHSCREEN_DELAY_TIME)
             sleep(Constants.TOMENUFRAGMENT_SPLASHSCREEN_WAIT_TIME)
             navigationController()
         }

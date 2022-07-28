@@ -1,7 +1,6 @@
 package xyz.ummo.bite.signup.phoneauth
 
 
-
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,44 +10,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.transition.TransitionManager
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-
-
+import timber.log.Timber
 import xyz.ummo.bite.R
 import xyz.ummo.bite.databinding.FragmentOTPBinding
+import xyz.ummo.bite.localdatabase.viewmodels.profileViewModel
 import xyz.ummo.bite.main.MainActivity
-import xyz.ummo.bite.signup.OTPFragmentArgs
-
-
-import xyz.ummo.bite.signup.phoneauth.phoneAuthBottomSheet
-
 import xyz.ummo.bite.utils.eventBusClasses.otpEntered
-import java.util.concurrent.TimeUnit
 
 
-private var motpEntered=otpEntered(false)
+private var motpEntered = otpEntered(false)
 
 class OTPFragment : Fragment() {
 
     private lateinit var _binding: FragmentOTPBinding
     private val binding get() = _binding!!
-    private var   storedVerificationId: String? = "default"
+    private var storedVerificationId: String? = "default"
     private var resendToken: PhoneAuthProvider.ForceResendingToken? = null
-    private lateinit var phoneNumber : String
-    private lateinit var rootview:View
+    private lateinit var phoneNumber: String
+    private lateinit var rootview: View
+    private lateinit var mprofileViewModel: profileViewModel
+
     //Firebase variables
-    var count :Int =0
+    var count: Int = 0
     private lateinit var auth: FirebaseAuth
-    private var SMS_String:String=""
+    private var SMS_String: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,34 +50,46 @@ class OTPFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentOTPBinding.inflate(inflater, container, false)
         val args = OTPFragmentArgs.fromBundle(requireArguments())
-        binding.otpSubtitleUsermobile.text = args.phoneNumber
-        rootview = binding.root
-        phoneNumber =args.phoneNumber.trim()
-        auth = FirebaseAuth.getInstance()
+        mprofileViewModel = ViewModelProvider(this).get(profileViewModel::class.java)
+        mprofileViewModel.getTopUser()
+        val user = mprofileViewModel.TopMostUser
+        Timber.e("user->$user")
+        Log.d("useratOTP","${user.value?.email}")
+        phoneNumber = user.value?.phonecontact.toString().trim()
+
+        Toast.makeText(requireContext(), phoneNumber, Toast.LENGTH_SHORT).show()
         setNavigationUplistener()
+
+        rootview = binding.root
+
+        auth = FirebaseAuth.getInstance()
+
         CreateTextBoxAutoFocusFeature()
-
-
         return rootview
     }
 
+
+    private fun initializePhoneNumber() {
+        mprofileViewModel.getTopUser()
+        val user = mprofileViewModel.TopMostUser
+        phoneNumber = user.value?.phonecontact.toString().trim()
+    }
+
     private fun setonCodeSentvariables() {
-
         val args = OTPFragmentArgs.fromBundle(requireArguments())
-        storedVerificationId=args.verificationID
-
+        storedVerificationId = args.verificationID
     }
 
     private fun disableTextBoxes() {
-        binding.smsIntaker.isEnabled=false
-        binding.smsIntaker.visibility=View.GONE
-
+        binding.smsIntaker.isEnabled = false
+        binding.smsIntaker.visibility = View.GONE
     }
+
     private fun enableTextBoxes() {
-        binding.smsIntaker.isEnabled=true
-        binding.smsIntaker.visibility=View.VISIBLE
-
+        binding.smsIntaker.isEnabled = true
+        binding.smsIntaker.visibility = View.VISIBLE
     }
+
     private fun setNavigationUplistener() {
         //navigation icon to sign up fragment
         binding.appBarOtp.setNavigationOnClickListener(View.OnClickListener { appbar ->
@@ -92,10 +97,6 @@ class OTPFragment : Fragment() {
                 .navigate(R.id.action_OTPFragment_to_userRegistrationFragment)
         })
     }
-
-
-
-
 
     private fun validator(
         box1: TextInputEditText,
@@ -105,39 +106,34 @@ class OTPFragment : Fragment() {
         box5: TextInputEditText,
         box6: TextInputEditText
     ): Boolean {
-
         val condition1: Boolean =
             !box1.text.isNullOrEmpty() && !box2.text.isNullOrEmpty() && !box3.text.isNullOrEmpty()
         val condition2: Boolean =
             !box4.text.isNullOrEmpty() && !box5.text.isNullOrEmpty() && !box6.text.isNullOrEmpty()
-
         return !(condition1 && condition2)
     }
 
+    @Subscribe
+    fun checkIfSmsIsAvailable(event: otpEntered) {
 
-
-@Subscribe
-fun checkIfSmsIsAvailable(event: otpEntered){
-
-    if (event.smsProvided == true){
-signInPhoneNumberWithSMSCode(SMS_String)
-    }
-
-}
-    private fun signInPhoneNumberWithSMSCode(code: String){
-        try {
-            val credential = PhoneAuthProvider.getCredential(storedVerificationId!!,
-                code
-            )
-   Log.d("credentialfromsms:","$code")
-           signInWithPhoneAuthCredential(credential)
-
-        } catch (ex: Exception) {
-            Log.d("exceptionnfromsms:","${ex.message}")
-
+        if (event.smsProvided == true) {
+            signInPhoneNumberWithSMSCode(SMS_String)
         }
     }
 
+    private fun signInPhoneNumberWithSMSCode(code: String) {
+        try {
+            val credential = PhoneAuthProvider.getCredential(
+                storedVerificationId!!,
+                code
+            )
+            Log.d("credentialfromsms:", "$code")
+            signInWithPhoneAuthCredential(credential)
+
+        } catch (ex: Exception) {
+            Log.d("exceptionnfromsms:", "${ex.message}")
+        }
+    }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         FirebaseAuth.getInstance().signInWithCredential(credential)
@@ -147,7 +143,7 @@ signInPhoneNumberWithSMSCode(SMS_String)
                     Toast.makeText(requireContext(), "SuccessfullLogin", Toast.LENGTH_SHORT)
                         .show()
                 } else {
-                   launchPhoneAuthBottomSheet()
+                    launchPhoneAuthBottomSheet()
                 }
             }
     }
@@ -156,15 +152,17 @@ signInPhoneNumberWithSMSCode(SMS_String)
         val foodItemOrderBottomSheet = phoneAuthBottomSheet()
         foodItemOrderBottomSheet.show(MainActivity.supportFM, phoneAuthBottomSheet.TAG)
     }
+
     private fun movetoSplashScreen() {
 //  To menu fragment
         val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(
             R.id.NavHostFragment
         ) as NavHostFragment
-        val   navController = navHostFragment.navController
+        val navController = navHostFragment.navController
         navController.navigate(R.id.action_OTPFragment_to_splashScreenToMenu)
     }
-    private fun CreateTextBoxAutoFocusFeature(){
+
+    private fun CreateTextBoxAutoFocusFeature() {
         binding.apply {
 
             val array: Array<Any> = arrayOf(
@@ -208,7 +206,7 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     TransitionManager.beginDelayedTransition(rootview as ViewGroup)
                                     rootview.findViewById<TextInputEditText>(array[1] as Int)
                                         .requestFocus()
-                                    SMS_String+=s!!.toString()
+                                    SMS_String += s!!.toString()
                                     count++
                                 }
                             }
@@ -245,8 +243,8 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     TransitionManager.beginDelayedTransition(rootview as ViewGroup)
                                     rootview.findViewById<TextInputEditText>(array[2] as Int)
                                         .requestFocus()
-                                    SMS_String+=s!!.toString()
-                                    count ++
+                                    SMS_String += s!!.toString()
+                                    count++
                                 }
                             }
                         })
@@ -285,7 +283,7 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     TransitionManager.beginDelayedTransition(rootview as ViewGroup)
                                     rootview.findViewById<TextInputEditText>(array[3] as Int)
                                         .requestFocus()
-                                    SMS_String+=s!!.toString()
+                                    SMS_String += s!!.toString()
                                     count++
 
 
@@ -326,7 +324,7 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     TransitionManager.beginDelayedTransition(rootview as ViewGroup)
                                     rootview.findViewById<TextInputEditText>(array[4] as Int)
                                         .requestFocus()
-                                    SMS_String+=s!!.toString()
+                                    SMS_String += s!!.toString()
                                     count++
                                 }
                             }
@@ -364,7 +362,7 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     TransitionManager.beginDelayedTransition(rootview as ViewGroup)
                                     rootview.findViewById<TextInputEditText>(array[5] as Int)
                                         .requestFocus()
-                                    SMS_String+=s!!.toString()
+                                    SMS_String += s!!.toString()
                                     count++
                                 }
                             }
@@ -400,9 +398,8 @@ signInPhoneNumberWithSMSCode(SMS_String)
                                     rootview.findViewById<TextInputEditText>(array[0] as Int)
                                         .requestFocus()
                                     count++
-                                    SMS_String+=s!!.toString()
+                                    SMS_String += s!!.toString()
                                     otpEnteredpublisher()
-
 
                                 }
 
@@ -417,13 +414,13 @@ signInPhoneNumberWithSMSCode(SMS_String)
             }
         }
     }
-    @Subscribe
-    private fun otpEnteredpublisher(){
-        if(count==6){
-            motpEntered= otpEntered(true)
-            EventBus.getDefault().post(motpEntered)}
-        else{
 
+    @Subscribe
+    private fun otpEnteredpublisher() {
+        if (count == 6) {
+            motpEntered = otpEntered(true)
+            EventBus.getDefault().post(motpEntered)
+        } else {
             Toast.makeText(requireContext(), "no", Toast.LENGTH_SHORT).show()
         }
     }
@@ -437,10 +434,10 @@ signInPhoneNumberWithSMSCode(SMS_String)
         super.onStop()
         EventBus.getDefault().unregister(this)
     }
+
     @Subscribe
     override fun onDestroy() {
-
-        motpEntered= otpEntered(false)
+        motpEntered = otpEntered(false)
         EventBus.getDefault().post(motpEntered)
         super.onDestroy()
     }

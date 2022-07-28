@@ -23,8 +23,9 @@
 
          <com.google.android.material.button.MaterialButton
              android:id="@+id/phoneauth_bottomsheet_skip_button"
-             style="@style/Widget.UmmoBite.Button"
+             style="@style/Widget.UmmoBite.Button.black"
              android:layout_width="wrap_content"
+
              android:layout_height="wrap_content"
              android:layout_alignParentStart="true"
              android:layout_marginEnd="65dp"

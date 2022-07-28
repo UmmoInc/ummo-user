@@ -127,6 +127,53 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="googleSignIn">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1073" />
+                            <option name="y" value="786" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_googleSignIn_to_logInWithSocials">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="logInWithSocials">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1122" />
+                            <option name="y" value="346" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_logInWithSocials_to_googleSignIn">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_logInWithSocials_to_signInFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="mainscreen">
                     <value>
                       <LayoutPositions>
@@ -221,6 +268,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_signInFragment_to_logInWithSocials">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_signInFragment_to_mainscreen">
                               <value>
                                 <LayoutPositions />
@@ -290,6 +342,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_splashScreenToOTP_to_OTPFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_splashScreenToOTP_to_splashScreenToMenu2">
                               <value>
                                 <LayoutPositions />
                               </value>
